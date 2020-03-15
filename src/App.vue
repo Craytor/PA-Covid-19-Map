@@ -3,8 +3,8 @@
         <div class="container lg:max-w-5xl mx-auto px-4 md:px-0">
             <div class="">
                 <h1 class="text-4xl font-bold">Pennsylvania COVID-19 Tracker</h1>
-                <h4>SOURCE: <a href="https://www.health.pa.gov/topics/disease/Pages/Coronavirus.aspx">Pennsylvania Deptartment of Health</a> &middot; Developed by Tyler Youschak</h4>
-                <h4 style="font-size: 14px">Last updated 3/14/2020 2:00 p.m.</h4>
+                <h4 class="text-xs">SOURCE: <a href="https://www.health.pa.gov/topics/disease/Pages/Coronavirus.aspx">Pennsylvania Deptartment of Health</a> &middot; Developed by Tyler Youschak</h4>
+                <h4 class="mt-2 text-lg">Last updated 3/15/2020 12:00 p.m.</h4>
 
                 <div class="mt-4">
                 <!-- <a class="text-blue-700 font-bold" href="#">COVID-19 PA Timeline</a> -->
