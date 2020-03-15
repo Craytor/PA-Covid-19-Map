@@ -9,6 +9,11 @@
   },
   "dependencies": {
     "core-js": "^3.6.4",
+    "d3": "^5.15.0",
+    "d3-geo": "^1.11.9",
+    "d3-geo-projection": "^2.8.1",
+    "d3-scale": "^3.2.1",
+    "topojson": "^3.0.2",
     "vue": "^2.6.11"
   },
   "devDependencies": {
@@ -21,7 +26,7 @@
     "vue-template-compiler": "^2.6.11"
   },
   "eslintConfig": {
-    "root": true,
+    "root": false,
     "env": {
       "node": true
     },
