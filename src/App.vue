@@ -1,11 +1,13 @@
 <template>
     <div id="app">
-        <h1>Pennsylvania COVID-19 Tracker</h1>
-        <h4 style="font-size: 14px">SOURCE: <a href="https://www.health.pa.gov/topics/disease/Pages/Coronavirus.aspx">Pennsylvania Deptartment of Health</a> &middot; Developed by Tyler Youschak</h4>
-        <h4 style="font-size: 14px">Last updated 2:00 p.m.</h4>
-        <div id="map"></div>
-
-        
+        <div class="container mx-auto">
+            <div class="">
+                <h1 class="text-4xl font-bold">Pennsylvania COVID-19 Tracker</h1>
+                <h4>SOURCE: <a href="https://www.health.pa.gov/topics/disease/Pages/Coronavirus.aspx">Pennsylvania Deptartment of Health</a> &middot; Developed by Tyler Youschak</h4>
+                <h4 style="font-size: 14px">Last updated 2:00 p.m.</h4>
+            </div>
+            <div id="map" class="svg-container"></div>
+        </div>
     </div>
 </template>
 
@@ -46,8 +48,9 @@
                     .projection(projection);
 
                 let svg = d3.select("#map").append("svg")
-                    .attr("width", width)
-                    .attr("height", height);
+                    .attr("preserveAspectRatio", "xMinYMin meet")
+                    .attr("viewBox", "0 0 " + width + " " + height)
+                    .classed("svg-content", true);
 
                 var tooltip = d3.select("body").append("div") 
                     .attr("class", "tooltip")       
@@ -212,4 +215,19 @@
     h1 {
         margin-bottom: 0px;
     }
+
+    .svg-container {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    padding-bottom: 100%;
+    vertical-align: top;
+    overflow: hidden;
+}
+.svg-content {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
 </style>

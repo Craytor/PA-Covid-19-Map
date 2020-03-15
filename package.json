@@ -3,9 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "serve": "npm run tailwind:css && vue-cli-service serve",
+    "build": "npm run tailwind:css && vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "tailwind:css": "npx tailwind build ./src/assets/css/tailwind.css -o ./public/css/styles.css -c tailwind.js"
   },
   "dependencies": {
     "core-js": "^3.6.4",
@@ -13,6 +14,7 @@
     "d3-geo": "^1.11.9",
     "d3-geo-projection": "^2.8.1",
     "d3-scale": "^3.2.1",
+    "tailwindcss": "^1.2.0",
     "topojson": "^3.0.2",
     "vue": "^2.6.11"
   },
