@@ -1,12 +1,44 @@
 <template>
     <div id="app">
-        <div class="container mx-auto">
+        <div class="container lg:max-w-5xl mx-auto px-4 md:px-0">
             <div class="">
                 <h1 class="text-4xl font-bold">Pennsylvania COVID-19 Tracker</h1>
                 <h4>SOURCE: <a href="https://www.health.pa.gov/topics/disease/Pages/Coronavirus.aspx">Pennsylvania Deptartment of Health</a> &middot; Developed by Tyler Youschak</h4>
-                <h4 style="font-size: 14px">Last updated 2:00 p.m.</h4>
+                <h4 style="font-size: 14px">Last updated 3/14/2020 2:00 p.m.</h4>
+            
+            
+                <div class="mt-10 p-4 bg-red-600 rounded-lg text-white text-left">
+                    <strong><i class="fas fa-exclamation-triangle pr-1"></i> Attention</strong>
+                    <p class="mt-1">For the most up to date information regarding COVID-19 in Pennsylvania, please consult <a class="border-b border-dotted" href="https://www.health.pa.gov/topics/disease/Pages/Coronavirus.aspx">Pennsylvania Deptartment of Health</a>. This site should not be used for life saving information - instead, rather, a source for numbers and statistics.</p>
+                </div>
             </div>
+
             <div id="map" class="svg-container"></div>
+
+            <div class="my-10">
+                <!-- <h1>Current Impact by County</h1> -->
+
+                <div class="w-full">
+                    <div class="w-full flex flex-row justify-between bg-gray-800 text-white rounded-t-lg text-xl px-4 py-2">
+                        <div class="">
+                            County
+                        </div>
+                        <div class="">
+                            Cases
+                        </div>
+                    </div>
+
+                    <div class="w-full flex flex-row justify-between text-lg py-2" v-for="(county, index) in virusData" :class="[index % 2 ? 'bg-gray-100' : 'bg-gray-200']">
+                        <div class="px-4">
+                            {{county.county}}
+                        </div>
+                        <div class="px-4">
+                            {{county.cases}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 </template>
@@ -208,26 +240,18 @@
          color: #2c3e50;
 	}
 
-    a {
-        text-decoration: none;
-        color: #2a578d
-    }
-    h1 {
-        margin-bottom: 0px;
-    }
-
     .svg-container {
-    display: inline-block;
-    position: relative;
-    width: 100%;
-    padding-bottom: 100%;
-    vertical-align: top;
-    overflow: hidden;
-}
-.svg-content {
-    display: inline-block;
-    position: absolute;
-    top: 0;
-    left: 0;
-}
+        display: inline-block;
+        position: relative;
+        width: 100%;
+        padding-bottom: 80%;
+        vertical-align: top;
+        overflow: hidden;
+    }
+    .svg-content {
+        display: inline-block;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
 </style>
