@@ -2,12 +2,12 @@ const virusData = [
     {
         id: 42003,
         county: 'Allegheny',
-        cases: 2
+        cases: 3
     },
     {
         id: 42017,
         county: 'Bucks',
-        cases: 3
+        cases: 4
     },
     {
         id: 45023,
@@ -17,17 +17,32 @@ const virusData = [
     {
         id: 42041,
         county: 'Cumberland',
-        cases: 3
+        cases: 5
     },
     {
         id: 42045,
         county: 'Delaware',
-        cases: 6
+        cases: 7
+    },
+    {
+        id: 42077,
+        county: 'Lehigh',
+        cases: 1
+    },
+    {
+        id: 42079,
+        county: 'Luzerne',
+        cases: 1
+    },
+    {
+        id: 42091,
+        county: 'Montgomery',
+        cases: 24
     },
     {
         id: 42089,
         county: 'Monroe',
-        cases: 3
+        cases: 6
     },
     {
         id: 42095,
@@ -35,14 +50,9 @@ const virusData = [
         cases: 1
     },
     {
-        id: 42091,
-        county: 'Montgomery',
-        cases: 20
-    },
-    {
         id: 42101,
         county: 'Philadelphia',
-        cases: 4
+        cases: 6
     },
     {
         id: 42103,

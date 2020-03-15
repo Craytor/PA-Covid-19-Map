@@ -5,6 +5,10 @@
                 <h1 class="text-4xl font-bold">Pennsylvania COVID-19 Tracker</h1>
                 <h4>SOURCE: <a href="https://www.health.pa.gov/topics/disease/Pages/Coronavirus.aspx">Pennsylvania Deptartment of Health</a> &middot; Developed by Tyler Youschak</h4>
                 <h4 style="font-size: 14px">Last updated 3/14/2020 2:00 p.m.</h4>
+
+                <div class="mt-4">
+                <!-- <a class="text-blue-700 font-bold" href="#">COVID-19 PA Timeline</a> -->
+                </div>
             
             
                 <div class="mt-10 p-4 bg-red-600 rounded-lg text-white text-left">
@@ -103,7 +107,7 @@
                     .enter().append("g")
                     .attr("class", "legend");
                 
-                var ls_w = width / color_domain.length, ls_h = 20;
+                var ls_w = width / color_domain.length, ls_h = 15;
                 
                 legend.append("rect")
                     .attr("x", function(d, i){
@@ -117,7 +121,7 @@
                 
                 legend.append("text")
                     .attr("x", function(d, i){ return (i*ls_w);})
-                    .attr("y", 620)
+                    .attr("y", 615)
                     .text(function(d, i){ return legend_labels[i]; });
 
                 var legend_title = "Number of COVID-19 Cases";
