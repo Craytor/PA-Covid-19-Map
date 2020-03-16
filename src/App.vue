@@ -3,8 +3,7 @@
         <div class="container lg:max-w-5xl mx-auto px-4 md:px-0">
             <div class="">
                 <h1 class="text-4xl font-bold">Pennsylvania COVID-19 Tracker</h1>
-                <h4 class="text-xs">SOURCE: <a href="https://www.health.pa.gov/topics/disease/Pages/Coronavirus.aspx">Pennsylvania Deptartment of Health</a> &middot; Developed by Tyler Youschak</h4>
-                <h4 class="mt-2 text-lg">Last updated 3/15/2020 12:00 p.m.</h4>
+                <h4 class="text-xs">Source: <a class="border-b border-dotted text-blue-600 border-blue-600 hover:text-blue-800 hover:border-blue-800" target="_blank" href="https://www.health.pa.gov/topics/disease/Pages/Coronavirus.aspx">Pennsylvania Deptartment of Health</a> &middot; Last updated 3/15/2020 12:00 p.m.</h4>
 
                 <div class="mt-4">
                 <!-- <a class="text-blue-700 font-bold" href="#">COVID-19 PA Timeline</a> -->
@@ -20,10 +19,33 @@
             <div id="map" class="svg-container"></div>
 
             <div class="my-10">
+                <div class="w-full">
+                    <div class="w-full flex flex-row justify-between bg-gray-800 text-white rounded-t-lg text-xl px-4 py-2 font-medium">
+                        Case Load
+                    </div>
+
+                    <div class="w-full text-lg py-2 bg-gray-100 p-4">
+                        <div id="casesChart" class="svg-container w-full" style="padding-bottom: 35%"></div>
+
+                        <div class="flex justify-center text-sm">
+                            <div class="flex flex-row content-center items-center mx-4">
+                                <div class="w-4 h-4 bg-gray-800"></div>
+                                <div class="pl-2">Total Cases</div>
+                            </div>
+                            <div class="flex flex-row content-center items-center mx-4">
+                                <div class="w-4 h-4 bg-yellow-600"></div>
+                                <div class="pl-2">New Cases</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="my-10">
                 <!-- <h1>Current Impact by County</h1> -->
 
                 <div class="w-full">
-                    <div class="w-full flex flex-row justify-between bg-gray-800 text-white rounded-t-lg text-xl px-4 py-2">
+                    <div class="w-full flex flex-row justify-between bg-gray-800 text-white rounded-t-lg text-xl px-4 py-2 font-medium">
                         <div class="">
                             County
                         </div>
@@ -43,7 +65,13 @@
                 </div>
             </div>
 
+
+            <div class="">
+                <h4 class="text-xs">Developed by Tyler Youschak</h4>
+            </div>
+
         </div>
+        
     </div>
 </template>
 
@@ -52,6 +80,7 @@
     import * as d3 from 'd3'
     import * as topojson from 'topojson'
     import virusData from './assets/data/virus-data.js'
+    import dailyData from './assets/data/daily-data.js'
     import counties from './assets/data/pa-counties.json'
 
     export default {
@@ -59,7 +88,8 @@
         data() {
             return {
                 statesData: {},
-                virusData: virusData
+                virusData: virusData,
+                dailyData: dailyData
             }
         },
         mounted() {
@@ -67,6 +97,7 @@
             //     this.createMap()
             // })
             this.createMap()
+            this.createCasesChart()
         },
         methods: {
             async fetchVirusData() {
@@ -143,8 +174,8 @@
 
                     console.log(this.virusData)
 
-            var pairRateWithId = {};
-            var pairNameWithId = {};
+                var pairRateWithId = {};
+                var pairNameWithId = {};
                 virusData.forEach(function(d) {
                     pairRateWithId[d.id] = d.cases;
                     pairNameWithId[d.id] = d.name;
@@ -181,6 +212,122 @@
                         }
                     });
 
+            },
+            createCasesChart() {
+
+                let svg = d3.select("#casesChart").append("svg")
+                    .attr("preserveAspectRatio", "xMinYMin meet")
+                    .attr("viewBox", "0 0 900 300")
+                    .classed("svg-content", true);
+
+                var margin = {left:30, right:30, top: 10, bottom: 20}
+                var width = 900 - margin.left - margin.right;
+                var height = 300 - margin.bottom - margin.top;
+
+                var tooltip = d3.select("body").append("div") 
+                    .attr("class", "tooltip-w-auto")       
+                    .style("opacity", 0);
+
+                var x = d3.scaleTime()
+                    .range([0, width]);
+                var x_axis = d3.axisBottom(x);
+                
+                var y = d3.scaleLinear()
+                    .range([height, 0]);
+                var y_axis = d3.axisBottom(y);
+
+                var xFormat = "%b %e";
+                var parseTime = d3.timeParse("%Y-%m-%d");
+
+                x.domain(d3.extent(dailyData, function(data) { 
+                    return parseTime(data.date); 
+                }));
+
+                let max = d3.max(dailyData, function(data) { 
+                    return +data.cases
+                })
+                y.domain([0, max]);
+
+                var g = svg.append("g")
+                    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+                 // Add the X Axis
+                g.append("g")
+                    .attr("transform", "translate(0," + height + ")")
+                    .call(d3.axisBottom(x).tickFormat(d3.timeFormat(xFormat)));
+                
+                // Add the Y Axis
+                g.append("g")
+                    .call(d3.axisLeft(y));
+
+                let totalCases = d3.line()
+                    .x(function(d) { return x(parseTime(d.date)); })
+                    .y(function(d) { return y(d.cases); })
+                    .curve(d3.curveMonotoneX);
+
+                let newCases = d3.line()
+                    .x(function(d) { return x(parseTime(d.date)); })
+                    .y(function(d) { return y(d.newCases); })
+                    .curve(d3.curveMonotoneX);
+
+                g.append("path")
+                    .datum(dailyData) 
+                    .attr("class", "line")
+                    .attr("stroke", "#2d3748")
+                    .attr("d", totalCases);
+                
+                g.append("path")
+                    .datum(dailyData) 
+                    .attr("class", "line")
+                    .attr("stroke", "#d69e2e")
+                    .attr("d", newCases);
+
+                g.selectAll("dot")
+                    .data(dailyData)
+                    .enter().append("circle")
+                    .attr("r", 3.5)
+                    .attr("cx", function(d) { return x(parseTime(d.date)); })
+                    .attr("cy", function(d) { return y(d.cases); })
+                    .style("fill",'#2d3748')
+                    .on('mouseover', function(d) {
+                        d3.select(this).style("fill", "#ADABAB"); 
+                        tooltip.transition()    
+                            .duration(200)    
+                            .style("opacity", .9);    
+                        tooltip.html(d.cases + " cases")  
+                            .style("left", (d3.event.pageX) + "px")   
+                            .style("top", (d3.event.pageY - 28) + "px");  
+                    })
+                    .on("mouseout", function(d) {   
+                        tooltip.transition()    
+                            .duration(500)    
+                            .style("opacity", 0); 
+                        d3.select(this).style("fill", "#2d3748");
+                    });
+                
+                g.selectAll("dot")
+                    .data(dailyData)
+                    .enter().append("circle")
+                    .attr("r", 3.5)
+                    .attr("cx", function(d) { return x(parseTime(d.date)); })
+                    .attr("cy", function(d) { return y(d.newCases); })
+                    .style("fill",'#d69e2e')
+                    .on('mouseover', function(d) {
+                        d3.select(this).style("fill", "#ADABAB"); 
+                        tooltip.transition()    
+                            .duration(200)    
+                            .style("opacity", .9);    
+                        tooltip.html(d.newCases + " new cases")  
+                            .style("left", (d3.event.pageX) + "px")   
+                            .style("top", (d3.event.pageY - 28) + "px");  
+                    })
+                    .on("mouseout", function(d) {   
+                        tooltip.transition()    
+                            .duration(500)    
+                            .style("opacity", 0); 
+                        d3.select(this).style("fill", "#d69e2e");
+                    });
+
             }
         }
     }
@@ -206,23 +353,32 @@
         margin:0 auto;
     }
 
-    path {
+    #map path {
         fill: #E4E4E4;
         stroke: #fff;
         stroke-width: .5px;
       }
-      path:hover {
+    #map path:hover {
         fill: #ADABAB;
-      }
-      body {
-        text-align: center;
-      }
-
+    }
+      
     div.tooltip { 
         position: absolute;     
         text-align: left;     
         min-width: 150px;          
         min-height: 14px;         
+        padding: 6px;       
+        font: 14px sans-serif;    
+        background: #2c3e50; 
+        border: 0px;        
+        pointer-events: none;    
+        border-radius: 4px;
+        color: #fff 
+    }
+
+    .tooltip-w-auto {
+        position: absolute;     
+        text-align: left;        
         padding: 6px;       
         font: 14px sans-serif;    
         background: #2c3e50; 
@@ -257,5 +413,13 @@
         position: absolute;
         top: 0;
         left: 0;
+    }
+    #casesChart text {
+        font-size: 14px;
+    }
+    #casesChart .line {
+        fill: none;
+        /* stroke: #2d3748; */
+        stroke-width: 1.25px;
     }
 </style>
