@@ -60,6 +60,8 @@
                         </div>
                         <div class="px-4">
                             {{county.cases}}
+                            <i class="fa fa-arrow-up pl-2 text-green-600" v-if="county.status == 1" :title="county.newCases + ' new cases'"></i>
+                            <i class="fa fa-arrow-right pl-2 text-gray-600" v-if="county.status == 0" title="No new cases"></i>
                         </div>
                     </div>
                 </div>
