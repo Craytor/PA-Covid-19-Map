@@ -46,13 +46,13 @@ const dailyOverview = [
     },
     {
         date: '2020-03-14',
-        cases: 41,
-        newCases: 6,
+        cases: 47,
+        newCases: 12,
     },
     {
         date: '2020-03-15',
         cases: 63,
-        newCases: 22,
+        newCases: 16,
     }
 ]
 export default dailyOverview
