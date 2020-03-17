@@ -16,6 +16,8 @@
         ],
         mounted() {
             this.createGraph()
+
+            window.addEventListener("resize", this.redraw)
         },
         methods: {
             createGraph() {
@@ -70,6 +72,61 @@
                     .attr("stroke", "#2d3748")
                     .attr("d", totalCases);
 
+            },
+            redraw() {
+                
+                let initWidth = this.$refs[this.county].clientWidth
+                let initHeight = this.$refs[this.county].clientHeight
+
+                d3.select("#county-" + this.county + " svg").remove();
+
+                let svg = d3.select("#county-" + this.county).append("svg")
+                    // .attr("preserveAspectRatio", "xMinYMin meet")
+                    .attr('width', initWidth)
+                    .attr('height', initHeight)
+                    // .attr("viewBox", "0 0 " + initWidth + " " + initHeight)
+                    // .classed("svg-content", true);
+
+                var margin = {left:0, right:0, top: 2, bottom: 2}
+                var width = initWidth - margin.left - margin.right;
+                var height = initHeight - margin.bottom - margin.top;
+
+                var x = d3.scaleTime()
+                    .range([0, width]);
+                var x_axis = d3.axisBottom(x);
+                
+                var y = d3.scaleLinear()
+                    .range([height, 0]);
+                var y_axis = d3.axisBottom(y);
+
+                var xFormat = "%b %e";
+                var parseTime = d3.timeParse("%Y-%m-%d");
+
+                x.domain(d3.extent(this.data, function(data) { 
+                    return parseTime(data.date); 
+                }));
+
+                let max = d3.max(this.data, function(data) { 
+                    return +data.cases
+                })
+                y.domain([0, max]);
+
+                var g = svg.append("g")
+                    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+                let totalCases = d3.line()
+                    .x(function(d) { return x(parseTime(d.date)); })
+                    .y(function(d) { return y(d.cases); })
+                    .curve(d3.curveMonotoneX);
+
+                g.append("path")
+                    .datum(this.data) 
+                    .attr("class", "line")
+                    .attr("fill", 'none')
+                    .attr("stroke-width", '2px')
+                    .attr("stroke", "#2d3748")
+                    .attr("d", totalCases);
+                
             }
         }
     }

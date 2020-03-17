@@ -54,15 +54,22 @@
                         </div>
                     </div>
 
-                    <div class="w-full flex flex-row justify-between text-lg" v-for="(county, index) in virusData" :class="[index % 2 ? 'bg-gray-100' : 'bg-gray-200']">
-                        <div class="px-4 py-2">
-                            {{county.county}}
+                    <div class="w-full flex flex-col md:flex-row justify-between text-lg" v-for="(county, index) in virusData" :class="[index % 2 ? 'bg-gray-100' : 'bg-gray-200']">
+                        <div class="px-4 py-2 w-full md:w-auto text-left flex flex-row md:flex-none">
+                            <div class="flex-1">
+                                {{ county.county }}
+                            </div>
+                            <div class="md:hidden">
+                                {{county.cases}}
+                                <i class="fa fa-arrow-up pl-2 text-green-600" v-if="county.status == 1" :title="county.newCases + ' new cases'"></i>
+                                <i class="fa fa-arrow-right pl-2 text-gray-600" v-if="county.status == 0" title="No new cases"></i>
+                            </div>
                         </div>
                         <div class="px-4 flex flex-row items-center">
-                            <div class="w-32 h-8 mr-4">
+                            <div class="w-full md:w-32 h-8 mr-4 mb-2 md:mb-0">
                                 <MiniTrendGraph :county="county.id" :data="county.dailyOverview" />
                             </div>
-                            <div class="py-2">
+                            <div class="py-2 hidden md:block">
                                 {{county.cases}}
                                 <i class="fa fa-arrow-up pl-2 text-green-600" v-if="county.status == 1" :title="county.newCases + ' new cases'"></i>
                                 <i class="fa fa-arrow-right pl-2 text-gray-600" v-if="county.status == 0" title="No new cases"></i>
