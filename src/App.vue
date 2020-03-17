@@ -54,14 +54,19 @@
                         </div>
                     </div>
 
-                    <div class="w-full flex flex-row justify-between text-lg py-2" v-for="(county, index) in virusData" :class="[index % 2 ? 'bg-gray-100' : 'bg-gray-200']">
-                        <div class="px-4">
+                    <div class="w-full flex flex-row justify-between text-lg" v-for="(county, index) in virusData" :class="[index % 2 ? 'bg-gray-100' : 'bg-gray-200']">
+                        <div class="px-4 py-2">
                             {{county.county}}
                         </div>
-                        <div class="px-4">
-                            {{county.cases}}
-                            <i class="fa fa-arrow-up pl-2 text-green-600" v-if="county.status == 1" :title="county.newCases + ' new cases'"></i>
-                            <i class="fa fa-arrow-right pl-2 text-gray-600" v-if="county.status == 0" title="No new cases"></i>
+                        <div class="px-4 flex flex-row items-center">
+                            <div class="w-32 h-8 mr-4">
+                                <MiniTrendGraph :county="county.id" :data="county.dailyOverview" />
+                            </div>
+                            <div class="py-2">
+                                {{county.cases}}
+                                <i class="fa fa-arrow-up pl-2 text-green-600" v-if="county.status == 1" :title="county.newCases + ' new cases'"></i>
+                                <i class="fa fa-arrow-right pl-2 text-gray-600" v-if="county.status == 0" title="No new cases"></i>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -85,6 +90,8 @@
     import dailyData from './assets/data/daily-data.js'
     import counties from './assets/data/pa-counties.json'
 
+    import MiniTrendGraph from './components/MiniTrendGraph'
+
     export default {
         name: 'App',
         data() {
@@ -93,6 +100,9 @@
                 virusData: virusData,
                 dailyData: dailyData
             }
+        },
+        components: {
+            MiniTrendGraph
         },
         mounted() {
             // this.fetchVirusData().then(function() {
