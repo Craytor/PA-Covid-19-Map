@@ -74,7 +74,7 @@
 
 
             <div class="">
-                <h4 class="text-xs">Developed by Tyler Youschak</h4>
+                <h4 class="text-xs">Developed by Tyler Youschak &middot; <a class="text-blue-600" href="mailto:tyler@cirrus.tech">Contact Me</a></h4>
             </div>
 
         </div>
