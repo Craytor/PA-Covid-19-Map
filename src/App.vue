@@ -69,6 +69,10 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="w-full flex flex-row justify-center py-2 px-4 bg-gray-400">
+                        {{ 67 - virusData.length }} counties are currently not reporting any cases
+                    </div>
                 </div>
             </div>
 
