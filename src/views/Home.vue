@@ -57,9 +57,9 @@
                     <div class="w-full flex flex-col md:flex-row justify-between text-lg" v-for="(county, index) in virusData" :class="[index % 2 ? 'bg-gray-100' : 'bg-gray-200']">
                         <div class="px-4 py-2 w-full md:w-auto text-left flex flex-row md:flex-none">
                             <div class="flex-1">
-                                <router-link class="hover:text-blue-600 hover:border-blue-600" :to="{ name: 'County', params: { id: county.id }}">
+                                <!-- <router-link class="hover:text-blue-600 hover:border-blue-600" :to="{ name: 'County', params: { id: county.id }}"> -->
                                     {{ county.county }}
-                                </router-link>
+                                <!-- </router-link> -->
                             </div>
                             <div class="md:hidden">
                                 {{county.cases}}
