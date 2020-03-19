@@ -5,86 +5,88 @@
                 <h1 class="text-4xl font-bold">Pennsylvania COVID-19 Tracker</h1>
                 <h4 class="text-xs">Source: <a class="border-b border-dotted text-blue-600 border-blue-600 hover:text-blue-800 hover:border-blue-800" target="_blank" href="https://www.health.pa.gov/topics/disease/Pages/Coronavirus.aspx">Pennsylvania Deptartment of Health</a> &middot; Last updated 3/18/2020 12:00 p.m.</h4>
                 
-                <div class="mt-10 p-4 bg-red-600 rounded-lg text-white text-left">
+                <div class="mt-10 p-4 bg-red-600 rounded-lg shadow-md text-white text-left">
                     <strong><i class="fas fa-exclamation-triangle pr-1"></i> Attention</strong>
                     <p class="mt-1">For the most up to date information regarding COVID-19 in Pennsylvania, please consult <a class="border-b border-dotted" href="https://www.health.pa.gov/topics/disease/Pages/Coronavirus.aspx">Pennsylvania Deptartment of Health</a>. This site should not be used for life saving information - instead, rather, a source for numbers and statistics.</p>
                 </div>
             </div>
 		</div>
-        <div class="container lg:max-w-5xl mx-auto px-4 md:px-0">
+        <div class="w-full">
+			<div class="lg:max-w-5xl mx-auto md:px-4">
 
-            <div id="map" class="svg-container"></div>
+                <div id="map" class="svg-container"></div>
 
-            <div class="my-10">
-                <div class="w-full">
-                    <div class="w-full flex flex-row justify-between bg-gray-800 text-white rounded-t-lg text-xl px-4 py-2 font-medium">
-                        Case Load
-                    </div>
+                <div class="my-10">
+                    <div class="w-full">
+                        <div class="w-full flex flex-row justify-between bg-gray-800 text-white rounded-t-lg text-xl px-4 py-2 font-medium">
+                            Case Load
+                        </div>
 
-                    <div class="w-full text-lg py-2 bg-gray-100 p-4">
-                        <div id="casesChart" class="svg-container w-full" style="padding-bottom: 35%"></div>
+                        <div class="w-full text-lg py-2 bg-gray-100 p-4">
+                            <div id="casesChart" class="svg-container w-full" style="padding-bottom: 35%"></div>
 
-                        <div class="flex justify-center text-sm">
-                            <div class="flex flex-row content-center items-center mx-4">
-                                <div class="w-4 h-4 bg-gray-800"></div>
-                                <div class="pl-2">Total Cases</div>
-                            </div>
-                            <div class="flex flex-row content-center items-center mx-4">
-                                <div class="w-4 h-4 bg-yellow-600"></div>
-                                <div class="pl-2">New Cases</div>
+                            <div class="flex justify-center text-sm">
+                                <div class="flex flex-row content-center items-center mx-4">
+                                    <div class="w-4 h-4 bg-gray-800"></div>
+                                    <div class="pl-2">Total Cases</div>
+                                </div>
+                                <div class="flex flex-row content-center items-center mx-4">
+                                    <div class="w-4 h-4 bg-yellow-600"></div>
+                                    <div class="pl-2">New Cases</div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="my-10">
-                <!-- <h1>Current Impact by County</h1> -->
+                <div class="my-10">
+                    <!-- <h1>Current Impact by County</h1> -->
 
-                <div class="w-full">
-                    <div class="w-full flex flex-row justify-between bg-gray-800 text-white rounded-t-lg text-xl px-4 py-2 font-medium">
-                        <div class="">
-                            County
-                        </div>
-                        <div class="">
-                            Cases
-                        </div>
-                    </div>
-
-                    <div class="w-full flex flex-col md:flex-row justify-between text-lg" v-for="(county, index) in virusData" :class="[index % 2 ? 'bg-gray-100' : 'bg-gray-200']">
-                        <div class="px-4 py-2 w-full md:w-auto text-left flex flex-row md:flex-none">
-                            <div class="flex-1">
-                                <router-link class="hover:text-blue-600 hover:border-blue-600" :to="{ name: 'County', params: { id: county.id }}">
-                                    {{ county.county }}
-                                </router-link>
+                    <div class="w-full">
+                        <div class="w-full flex flex-row justify-between bg-gray-800 text-white rounded-t-lg text-xl px-4 py-2 font-medium">
+                            <div class="">
+                                County
                             </div>
-                            <div class="md:hidden">
-                                {{county.cases}}
-                                <i class="fa fa-arrow-up pl-2 text-green-600" v-if="county.status == 1" :title="county.newCases + ' new cases'"></i>
-                                <i class="fa fa-arrow-right pl-2 text-gray-600" v-if="county.status == 0" title="No new cases"></i>
+                            <div class="">
+                                Cases
                             </div>
                         </div>
-                        <div class="px-4 flex flex-row items-center">
-                            <div class="w-full md:w-32 h-8 mr-4 mb-2 md:mb-0">
-                                <MiniTrendGraph :county="county.id" :data="county.dailyOverview" />
+
+                        <div class="w-full flex flex-col md:flex-row justify-between text-lg" v-for="(county, index) in virusData" :class="[index % 2 ? 'bg-gray-100' : 'bg-gray-200']">
+                            <div class="px-4 py-2 w-full md:w-auto text-left flex flex-row md:flex-none">
+                                <div class="flex-1">
+                                    <router-link class="hover:text-blue-600 hover:border-blue-600" :to="{ name: 'County', params: { id: county.id }}">
+                                        {{ county.county }}
+                                    </router-link>
+                                </div>
+                                <div class="md:hidden">
+                                    {{county.cases}}
+                                    <i class="fa fa-arrow-up pl-2 text-green-600" v-if="county.status == 1" :title="county.newCases + ' new cases'"></i>
+                                    <i class="fa fa-arrow-right pl-2 text-gray-600" v-if="county.status == 0" title="No new cases"></i>
+                                </div>
                             </div>
-                            <div class="py-2 hidden md:block">
-                                {{county.cases}}
-                                <i class="fa fa-arrow-up pl-2 text-green-600" v-if="county.status == 1" :title="county.newCases + ' new cases'"></i>
-                                <i class="fa fa-arrow-right pl-2 text-gray-600" v-if="county.status == 0" title="No new cases"></i>
+                            <div class="px-4 flex flex-row items-center">
+                                <div class="w-full md:w-32 h-8 mr-4 mb-2 md:mb-0">
+                                    <MiniTrendGraph :county="county.id" :data="county.dailyOverview" />
+                                </div>
+                                <div class="py-2 hidden md:block">
+                                    {{county.cases}}
+                                    <i class="fa fa-arrow-up pl-2 text-green-600" v-if="county.status == 1" :title="county.newCases + ' new cases'"></i>
+                                    <i class="fa fa-arrow-right pl-2 text-gray-600" v-if="county.status == 0" title="No new cases"></i>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="w-full flex flex-row justify-center py-2 px-4 bg-gray-400">
-                        {{ 67 - virusData.length }} counties are currently not reporting any cases
+                        <div class="w-full flex flex-row justify-center py-2 px-4 bg-gray-400">
+                            {{ 67 - virusData.length }} counties are currently not reporting any cases
+                        </div>
                     </div>
                 </div>
-            </div>
 
 
-            <div class="pb-4">
-                <h4 class="text-xs">Developed by Tyler Youschak &middot; <a class="text-blue-600" href="mailto:tyler@cirrus.tech">Contact Me</a> &middot; <a class="text-blue-600" href="https://forms.gle/GcTKNAQxQaaiLpoh6">Found an issue?</a></h4>
+                <div class="pb-4">
+                    <h4 class="text-xs">Developed by Tyler Youschak &middot; <a class="text-blue-600" href="mailto:tyler@cirrus.tech">Contact Me</a> &middot; <a class="text-blue-600" href="https://forms.gle/GcTKNAQxQaaiLpoh6">Found an issue?</a></h4>
+                </div>
             </div>
 
         </div>

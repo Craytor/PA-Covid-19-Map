@@ -14,12 +14,12 @@
 				<div class="w-full flex flex-wrap md:flex-row content-center justify-between mt-16">
 
 					<div class="w-full md:w-auto">
-						<h3 class="text-2xl uppercase text-bold">{{ countyData.dateOfFirstCase == null ? 'N/A' : moment(countyData.dateOfFirstCase, 'YYYY-MM-DD').format('MMMM D, YYYY') }}</h3>
+						<h3 class="text-2xl uppercase text-bold">{{ parseDate(countyData.dateOfFirstCase) }}</h3>
 						<span class="tracking-widest uppercase text-sm">First Case</span>
 					</div>
 
 					<div class="w-full pt-6 md:pt-0 md:w-auto">
-						<h3 class="text-2xl uppercase text-bold">{{ countyData.dateOfDisasterDeclaration == null ? 'N/A' : moment(countyData.dateOfDisasterDeclaration, 'YYYY-MM-DD').format('MMMM D, YYYY') }}</h3>
+						<h3 class="text-2xl uppercase text-bold">{{ parseDate(countyData.dateOfDisasterDeclaration) }}</h3>
 						<span class="tracking-widest uppercase text-sm">Disaster Declaration</span>
 					</div>
 
@@ -79,7 +79,7 @@
 			this.countyData = virusData.filter(county => {
 				return county.id == this.$route.params.id
 			})[0]
-			
+
 			this.createGraph()
 
             window.addEventListener("resize", this.redraw)
@@ -87,6 +87,9 @@
         methods: {
 			moment() {
 				return moment();
+			},
+			parseDate(date) {
+				return date == null ? 'N/A' : moment(date, 'YYYY-MM-DD').format('MMMM D, YYYY')
 			},
             createGraph() {
                 let initWidth = this.$refs.chart.clientWidth
