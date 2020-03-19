@@ -1,20 +1,17 @@
 <template>
     <div id="app">
-        <div class="container lg:max-w-5xl mx-auto px-4 md:px-0">
-            <div class="">
+        <div class="w-full bg-gray-800 md:pt-20 md:pb-20 text-white"> <!-- h-96 -->
+			<div class="lg:max-w-5xl mx-auto md:px-4 p-4">
                 <h1 class="text-4xl font-bold">Pennsylvania COVID-19 Tracker</h1>
                 <h4 class="text-xs">Source: <a class="border-b border-dotted text-blue-600 border-blue-600 hover:text-blue-800 hover:border-blue-800" target="_blank" href="https://www.health.pa.gov/topics/disease/Pages/Coronavirus.aspx">Pennsylvania Deptartment of Health</a> &middot; Last updated 3/18/2020 12:00 p.m.</h4>
-
-                <div class="mt-4">
-                <!-- <a class="text-blue-700 font-bold" href="#">COVID-19 PA Timeline</a> -->
-                </div>
-            
-            
+                
                 <div class="mt-10 p-4 bg-red-600 rounded-lg text-white text-left">
                     <strong><i class="fas fa-exclamation-triangle pr-1"></i> Attention</strong>
                     <p class="mt-1">For the most up to date information regarding COVID-19 in Pennsylvania, please consult <a class="border-b border-dotted" href="https://www.health.pa.gov/topics/disease/Pages/Coronavirus.aspx">Pennsylvania Deptartment of Health</a>. This site should not be used for life saving information - instead, rather, a source for numbers and statistics.</p>
                 </div>
             </div>
+		</div>
+        <div class="container lg:max-w-5xl mx-auto px-4 md:px-0">
 
             <div id="map" class="svg-container"></div>
 
@@ -57,9 +54,9 @@
                     <div class="w-full flex flex-col md:flex-row justify-between text-lg" v-for="(county, index) in virusData" :class="[index % 2 ? 'bg-gray-100' : 'bg-gray-200']">
                         <div class="px-4 py-2 w-full md:w-auto text-left flex flex-row md:flex-none">
                             <div class="flex-1">
-                                <!-- <router-link class="hover:text-blue-600 hover:border-blue-600" :to="{ name: 'County', params: { id: county.id }}"> -->
+                                <router-link class="hover:text-blue-600 hover:border-blue-600" :to="{ name: 'County', params: { id: county.id }}">
                                     {{ county.county }}
-                                <!-- </router-link> -->
+                                </router-link>
                             </div>
                             <div class="md:hidden">
                                 {{county.cases}}
@@ -197,7 +194,7 @@
                     .scale(s)
                     .translate(t);
 
-                    console.log(this.virusData)
+                    // console.log(this.virusData)
 
                 var pairRateWithId = {};
                 var pairNameWithId = {};
@@ -206,7 +203,7 @@
                     pairNameWithId[d.id] = d.name;
                 });
 
-                console.log(pairRateWithId)
+                // console.log(pairRateWithId)
 
                 svg.append("g")
                     .attr("class", "county")
@@ -222,7 +219,7 @@
                         tooltip.transition()    
                             .duration(200)    
                             .style("opacity", .9);    
-                        tooltip.html("<strong>" + d.properties.NAME + "</strong></br>Cases: " + (pairRateWithId[d.properties.GEOID] !== undefined ? pairRateWithId[d.properties.GEOID] : 0))  
+                        tooltip.html("<strong>" + d.properties.NAME + " County</strong></br>Cases: " + (pairRateWithId[d.properties.GEOID] !== undefined ? pairRateWithId[d.properties.GEOID] : 0))  
                             .style("left", (d3.event.pageX) + "px")   
                             .style("top", (d3.event.pageY - 28) + "px");  
                     })          
@@ -365,7 +362,6 @@
         -moz-osx-font-smoothing: grayscale;
         text-align: center;
         color: #2c3e50;
-        margin-top: 60px;
         width: 100%;
         height: 100%;
     }

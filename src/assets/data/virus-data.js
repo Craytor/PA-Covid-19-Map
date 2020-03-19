@@ -7,6 +7,7 @@ const virusData = [
         cases: 11,
         status: 1,
         dateOfFirstCase: '2020-03-14',
+        dateOfDisasterDeclaration: '2020-03-12',
         dailyOverview: [
             {
                 date: '2020-03-13',
@@ -29,7 +30,7 @@ const virusData = [
                 cases: 7,
             },
             {
-                date: '2020-03-17',
+                date: '2020-03-18',
                 cases: 11,
             },
         ]
@@ -40,6 +41,7 @@ const virusData = [
         cases: 2,
         status: 1,
         dateOfFirstCase: '2020-03-17',
+        dateOfDisasterDeclaration: '2020-03-16',
         dailyOverview: [
             {
                 date: '2020-03-16',
@@ -61,6 +63,7 @@ const virusData = [
         cases: 1,
         status: 1,
         dateOfFirstCase: '2020-03-18',
+        dateOfDisasterDeclaration: '2020-03-12',
         dailyOverview: [
             {
                 date: '2020-03-17',
@@ -78,6 +81,7 @@ const virusData = [
         cases: 9,
         status: 1,
         dateOfFirstCase: '2020-03-11',
+        dateOfDisasterDeclaration: null,
         dailyOverview: [
             {
                 date: '2020-03-10',
@@ -123,6 +127,7 @@ const virusData = [
         cases: 9,
         status: 1,
         dateOfFirstCase: '2020-03-12',
+        dateOfDisasterDeclaration: '2020-03-13',
         dailyOverview: [
             {
                 date: '2020-03-11',
@@ -164,6 +169,7 @@ const virusData = [
         cases: 10,
         status: 0,
         dateOfFirstCase: '2020-03-13',
+        dateOfDisasterDeclaration: '2020-03-18',
         dailyOverview: [
             {
                 date: '2020-03-12',
@@ -201,6 +207,7 @@ const virusData = [
         cases: 14,
         status: 1,
         dateOfFirstCase: '2020-03-06',
+        dateOfDisasterDeclaration: '2020-03-14',
         dailyOverview: [
             {
                 date: '2020-03-05',
@@ -266,6 +273,7 @@ const virusData = [
         cases: 1,
         status: 1,
         dateOfFirstCase: '2020-03-18',
+        dateOfDisasterDeclaration: '2020-03-16',
         dailyOverview: [
             {
                 date: '2020-03-17',
@@ -283,6 +291,7 @@ const virusData = [
         cases: 1,
         status: 0,
         dateOfFirstCase: '2020-03-15',
+        dateOfDisasterDeclaration: '2020-03-16',
         dailyOverview: [
             {
                 date: '2020-03-14',
@@ -312,6 +321,7 @@ const virusData = [
         cases: 1,
         status: 0,
         dateOfFirstCase: '2020-03-15',
+        dateOfDisasterDeclaration: '2020-03-15',
         dailyOverview: [
             {
                 date: '2020-03-14',
@@ -341,6 +351,7 @@ const virusData = [
         cases: 8,
         status: 0,
         dateOfFirstCase: '2020-03-09',
+        dateOfDisasterDeclaration: '2020-03-18',
         dailyOverview: [
             {
                 date: '2020-03-08',
@@ -390,11 +401,8 @@ const virusData = [
         cases: 42,
         status: 1,
         dateOfFirstCase: '2020-03-07',
+        dateOfDisasterDeclaration: '2020-03-08',
         dailyOverview: [
-            {
-                date: '2020-03-05',
-                cases: 0,
-            },
             {
                 date: '2020-03-06',
                 cases: 0,
@@ -455,6 +463,9 @@ const virusData = [
         cases: 1,
         status: 0,
         dateOfFirstCase: '2020-03-12',
+        deaths: 1,
+        dateOfFirstDeath: '2020-03-18',
+        dateOfDisasterDeclaration: '2020-03-16',
         dailyOverview: [
             {
                 date: '2020-03-11',
@@ -496,6 +507,7 @@ const virusData = [
         cases: 17,
         status: 1,
         dateOfFirstCase: '2020-03-10',
+        dateOfDisasterDeclaration: null,
         dailyOverview: [
             {
                 date: '2020-03-09',
@@ -545,6 +557,7 @@ const virusData = [
         cases: 2,
         status: 1,
         dateOfFirstCase: '2020-03-12',
+        dateOfDisasterDeclaration: '2020-03-18',
         dailyOverview: [
             {
                 date: '2020-03-11',
@@ -586,6 +599,7 @@ const virusData = [
         cases: 2,
         status: 0,
         dateOfFirstCase: '2020-03-13',
+        dateOfDisasterDeclaration: '2020-03-17',
         dailyOverview: [
             {
                 date: '2020-03-12',
@@ -623,6 +637,7 @@ const virusData = [
         cases: 1,
         status: 0,
         dateOfFirstCase: '2020-03-06',
+        dateOfDisasterDeclaration: '2020-03-16',
         dailyOverview: [
             {
                 date: '2020-03-05',
@@ -688,6 +703,7 @@ const virusData = [
         cases: 2,
         status: 1,
         dateOfFirstCase: '2020-03-18',
+        dateOfDisasterDeclaration: '2020-03-16',
         dailyOverview: [
             {
                 date: '2020-03-17',
