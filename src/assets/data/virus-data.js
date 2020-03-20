@@ -194,7 +194,7 @@ const virusData = [
         ]
     },
     {
-        id: 45023,
+        id: 42029,
         county: 'Chester',
         cases: 17,
         status: 1,
