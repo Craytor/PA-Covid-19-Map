@@ -34,6 +34,8 @@ const virusData = [
         status: 1,
         dateOfFirstCase: '2020-03-14',
         dateOfDisasterDeclaration: '2020-03-12',
+        deaths: 1,
+        dateOfFirstDeath: '2020-03-21',
         dailyOverview: [
             {
                 date: '2020-03-13',
