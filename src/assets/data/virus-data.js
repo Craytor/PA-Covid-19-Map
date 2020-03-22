@@ -4,8 +4,8 @@ const virusData = [
     {
         id: 42001,
         county: 'Adams',
-        cases: 4,
-        status: 0,
+        cases: 5,
+        status: 1,
         dateOfFirstCase: '2020-03-19',
         dateOfDisasterDeclaration: null,
         dailyOverview: [
@@ -25,12 +25,16 @@ const virusData = [
                 date: '2020-03-21',
                 cases: 4,
             },
+            {
+                date: '2020-03-22',
+                cases: 5,
+            },
         ]
     },
     {
         id: 42003,
         county: 'Allegheny',
-        cases: 31,
+        cases: 40,
         status: 1,
         dateOfFirstCase: '2020-03-14',
         dateOfDisasterDeclaration: '2020-03-12',
@@ -73,6 +77,10 @@ const virusData = [
                 date: '2020-03-21',
                 cases: 31,
             },
+            {
+                date: '2020-03-22',
+                cases: 40,
+            },
         ]
     },
     {
@@ -107,12 +115,16 @@ const virusData = [
                 date: '2020-03-21',
                 cases: 3,
             },
+            {
+                date: '2020-03-22',
+                cases: 3,
+            },
         ]
     },
     {
         id: 42011,
         county: 'Berks',
-        cases: 7,
+        cases: 13,
         status: 1,
         dateOfFirstCase: '2020-03-18',
         dateOfDisasterDeclaration: '2020-03-12',
@@ -137,12 +149,16 @@ const virusData = [
                 date: '2020-03-21',
                 cases: 7,
             },
+            {
+                date: '2020-03-22',
+                cases: 13,
+            },
         ]
     },
     {
         id: 42017,
         county: 'Bucks',
-        cases: 24,
+        cases: 32,
         status: 1,
         dateOfFirstCase: '2020-03-11',
         dateOfDisasterDeclaration: null,
@@ -195,13 +211,17 @@ const virusData = [
                 date: '2020-03-21',
                 cases: 24,
             },
+            {
+                date: '2020-03-22',
+                cases: 32,
+            },
         ]
     },
     {
         id: 42019,
         county: 'Butler',
         cases: 1,
-        status: 1,
+        status: 0,
         dateOfFirstCase: '2020-03-21',
         dateOfDisasterDeclaration: null,
         dailyOverview: [
@@ -211,6 +231,10 @@ const virusData = [
             },
             {
                 date: '2020-03-21',
+                cases: 1,
+            },
+            {
+                date: '2020-03-22',
                 cases: 1,
             },
         ]
@@ -235,12 +259,16 @@ const virusData = [
                 date: '2020-03-21',
                 cases: 1,
             },
+            {
+                date: '2020-03-22',
+                cases: 1,
+            },
         ]
     },
     {
         id: 42029,
         county: 'Chester',
-        cases: 19,
+        cases: 23,
         status: 1,
         dateOfFirstCase: '2020-03-12',
         dateOfDisasterDeclaration: '2020-03-13',
@@ -288,6 +316,28 @@ const virusData = [
             {
                 date: '2020-03-21',
                 cases: 19,
+            },
+            {
+                date: '2020-03-22',
+                cases: 23,
+            },
+        ]
+    },
+    {
+        id: 42037,
+        county: 'Columbia',
+        cases: 1,
+        status: 1,
+        dateOfFirstCase: '2020-03-22',
+        dateOfDisasterDeclaration: null,
+        dailyOverview: [
+            {
+                date: '2020-03-21',
+                cases: 0,
+            },
+            {
+                date: '2020-03-22',
+                cases: 1,
             },
         ]
     },
@@ -339,12 +389,34 @@ const virusData = [
                 date: '2020-03-21',
                 cases: 11,
             },
+            {
+                date: '2020-03-22',
+                cases: 11,
+            },
+        ]
+    },
+    {
+        id: 42043,
+        county: 'Dauphin',
+        cases: 1,
+        status: 1,
+        dateOfFirstCase: '2020-03-22',
+        dateOfDisasterDeclaration: null,
+        dailyOverview: [
+            {
+                date: '2020-03-21',
+                cases: 0,
+            },
+            {
+                date: '2020-03-22',
+                cases: 1,
+            },
         ]
     },
     {
         id: 42045,
         county: 'Delaware',
-        cases: 33,
+        cases: 43,
         status: 1,
         dateOfFirstCase: '2020-03-06',
         dateOfDisasterDeclaration: '2020-03-14',
@@ -417,13 +489,17 @@ const virusData = [
                 date: '2020-03-21',
                 cases: 33,
             },
+            {
+                date: '2020-03-22',
+                cases: 43,
+            },
         ]
     },
     {
         id: 42049,
         county: 'Erie',
-        cases: 1,
-        status: 0,
+        cases: 2,
+        status: 1,
         dateOfFirstCase: '2020-03-19',
         dateOfDisasterDeclaration: '2020-03-16',
         dailyOverview: [
@@ -441,6 +517,28 @@ const virusData = [
             },
             {
                 date: '2020-03-21',
+                cases: 1,
+            },
+            {
+                date: '2020-03-22',
+                cases: 2,
+            },
+        ]
+    },
+    {
+        id: 42051,
+        county: 'Fayette',
+        cases: 1,
+        status: 1,
+        dateOfFirstCase: '2020-03-22',
+        dateOfDisasterDeclaration: null,
+        dailyOverview: [
+            {
+                date: '2020-03-21',
+                cases: 0,
+            },
+            {
+                date: '2020-03-22',
                 cases: 1,
             },
         ]
@@ -465,12 +563,16 @@ const virusData = [
                 date: '2020-03-21',
                 cases: 1,
             },
+            {
+                date: '2020-03-22',
+                cases: 1,
+            },
         ]
     },
     {
         id: 42069,
         county: 'Lackawanna',
-        cases: 5,
+        cases: 6,
         status: 1,
         dateOfFirstCase: '2020-03-18',
         dateOfDisasterDeclaration: '2020-03-16',
@@ -495,12 +597,16 @@ const virusData = [
                 date: '2020-03-21',
                 cases: 5,
             },
+            {
+                date: '2020-03-22',
+                cases: 6,
+            },
         ]
     },
     {
         id: 42071,
         county: 'Lancaster',
-        cases: 4,
+        cases: 6,
         status: 1,
         dateOfFirstCase: '2020-03-20',
         dateOfDisasterDeclaration: null,
@@ -517,12 +623,16 @@ const virusData = [
                 date: '2020-03-21',
                 cases: 4,
             },
+            {
+                date: '2020-03-22',
+                cases: 6,
+            },
         ]
     },
     {
         id: 42075,
         county: 'Lebanon',
-        cases: 2,
+        cases: 3,
         status: 1,
         dateOfFirstCase: '2020-03-20',
         dateOfDisasterDeclaration: null,
@@ -539,12 +649,16 @@ const virusData = [
                 date: '2020-03-21',
                 cases: 2,
             },
+            {
+                date: '2020-03-22',
+                cases: 3,
+            },
         ]
     },
     {
         id: 42077,
         county: 'Lehigh',
-        cases: 13,
+        cases: 19,
         status: 1,
         dateOfFirstCase: '2020-03-15',
         dateOfDisasterDeclaration: '2020-03-16',
@@ -581,12 +695,16 @@ const virusData = [
                 date: '2020-03-21',
                 cases: 13,
             },
+            {
+                date: '2020-03-22',
+                cases: 19,
+            },
         ]
     },
     {
         id: 42079,
         county: 'Luzerne',
-        cases: 6,
+        cases: 7,
         status: 1,
         dateOfFirstCase: '2020-03-15',
         dateOfDisasterDeclaration: '2020-03-15',
@@ -623,12 +741,16 @@ const virusData = [
                 date: '2020-03-21',
                 cases: 6,
             },
+            {
+                date: '2020-03-22',
+                cases: 7,
+            },
         ]
     },
     {
         id: 42089,
         county: 'Monroe',
-        cases: 25,
+        cases: 31,
         status: 1,
         dateOfFirstCase: '2020-03-09',
         dateOfDisasterDeclaration: '2020-03-18',
@@ -689,12 +811,16 @@ const virusData = [
                 date: '2020-03-21',
                 cases: 25,
             },
+            {
+                date: '2020-03-22',
+                cases: 31,
+            },
         ]
     },
     {
         id: 42091,
         county: 'Montgomery',
-        cases: 71,
+        cases: 87,
         status: 1,
         dateOfFirstCase: '2020-03-07',
         dateOfDisasterDeclaration: '2020-03-08',
@@ -763,13 +889,17 @@ const virusData = [
                 date: '2020-03-21',
                 cases: 71,
             },
+            {
+                date: '2020-03-22',
+                cases: 87,
+            },
         ]
     },
     {
         id: 42093,
         county: 'Montour',
         cases: 1,
-        status: 1,
+        status: 0,
         dateOfFirstCase: '2020-03-20',
         dateOfDisasterDeclaration: null,
         dailyOverview: [
@@ -781,12 +911,16 @@ const virusData = [
                 date: '2020-03-21',
                 cases: 1,
             },
+            {
+                date: '2020-03-22',
+                cases: 1,
+            },
         ]
     },
     {
         id: 42095,
         county: 'Northampton',
-        cases: 17,
+        cases: 21,
         status: 1,
         dateOfFirstCase: '2020-03-12',
         deaths: 1,
@@ -837,12 +971,16 @@ const virusData = [
                 date: '2020-03-21',
                 cases: 17,
             },
+            {
+                date: '2020-03-22',
+                cases: 21,
+            },
         ]
     },
     {
         id: 42101,
         county: 'Philadelphia',
-        cases: 69,
+        cases: 91,
         status: 1,
         dateOfFirstCase: '2020-03-10',
         dateOfDisasterDeclaration: null,
@@ -899,6 +1037,10 @@ const virusData = [
                 date: '2020-03-21',
                 cases: 69,
             },
+            {
+                date: '2020-03-22',
+                cases: 91,
+            },
         ]
     },
     {
@@ -953,6 +1095,10 @@ const virusData = [
                 date: '2020-03-21',
                 cases: 3,
             },
+            {
+                date: '2020-03-22',
+                cases: 3,
+            },
         ]
     },
     {
@@ -975,12 +1121,34 @@ const virusData = [
                 date: '2020-03-21',
                 cases: 1,
             },
+            {
+                date: '2020-03-22',
+                cases: 1,
+            },
+        ]
+    },
+    {
+        id: 42107,
+        county: 'Schuylkill',
+        cases: 1,
+        status: 1,
+        dateOfFirstCase: '2020-03-22',
+        dateOfDisasterDeclaration: null,
+        dailyOverview: [
+            {
+                date: '2020-03-21',
+                cases: 0,
+            },
+            {
+                date: '2020-03-22',
+                cases: 1,
+            },
         ]
     },
     {
         id: 42125,
         county: 'Washington',
-        cases: 5,
+        cases: 7,
         status: 1,
         dateOfFirstCase: '2020-03-13',
         dateOfDisasterDeclaration: '2020-03-17',
@@ -1025,13 +1193,17 @@ const virusData = [
                 date: '2020-03-21',
                 cases: 5,
             },
+            {
+                date: '2020-03-22',
+                cases: 7,
+            },
         ]
     },
     {
         id: 42127,
         county: 'Wayne',
-        cases: 1,
-        status: 0,
+        cases: 2,
+        status: 1,
         dateOfFirstCase: '2020-03-06',
         dateOfDisasterDeclaration: '2020-03-16',
         dailyOverview: [
@@ -1103,6 +1275,10 @@ const virusData = [
                 date: '2020-03-21',
                 cases: 1,
             },
+            {
+                date: '2020-03-22',
+                cases: 2,
+            },
         ]
     },
     {
@@ -1129,12 +1305,16 @@ const virusData = [
                 date: '2020-03-21',
                 cases: 4,
             },
+            {
+                date: '2020-03-22',
+                cases: 4,
+            },
         ]
     },
     {
         id: 42133,
         county: 'York',
-        cases: 9,
+        cases: 10,
         status: 1,
         dateOfFirstCase: '2020-03-18',
         dateOfDisasterDeclaration: '2020-03-16',
@@ -1157,6 +1337,10 @@ const virusData = [
             },
             {
                 date: '2020-03-21',
+                cases: 9,
+            },
+            {
+                date: '2020-03-22',
                 cases: 9,
             },
         ]

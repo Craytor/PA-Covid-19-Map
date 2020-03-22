@@ -118,5 +118,12 @@ const dailyOverview = [
         deaths: 2,
         newDeaths: 1,
     },
+    {
+        date: '2020-03-22',
+        cases: 479,
+        newCases: 108,
+        deaths: 2,
+        newDeaths: 0,
+    },
 ]
 export default dailyOverview
