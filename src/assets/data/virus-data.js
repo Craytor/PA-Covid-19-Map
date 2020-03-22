@@ -748,6 +748,24 @@ const virusData = [
         ]
     },
     {
+        id: 42085,
+        county: 'Mercer',
+        cases: 1,
+        status: 1,
+        dateOfFirstCase: '2020-03-22',
+        dateOfDisasterDeclaration: null,
+        dailyOverview: [
+            {
+                date: '2020-03-21',
+                cases: 0,
+            },
+            {
+                date: '2020-03-22',
+                cases: 1,
+            },
+        ]
+    },
+    {
         id: 42089,
         county: 'Monroe',
         cases: 31,
