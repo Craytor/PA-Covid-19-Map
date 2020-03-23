@@ -167,7 +167,7 @@ const virusData = [
             },
             {
                 date: '2020-03-23',
-                cases: 13,
+                cases: 14,
             },
         ]
     },
