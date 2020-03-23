@@ -103,6 +103,7 @@
     import counties from '../assets/data/pa-counties.json'
 
     import MiniTrendGraph from '../components/MiniTrendGraph'
+    import textures from 'textures';
 
     export default {
         name: 'App',
@@ -199,13 +200,13 @@
                     // console.log(this.virusData)
 
                 var pairRateWithId = {};
+                var pairDeathsWithId = {};
                 var pairNameWithId = {};
                 virusData.forEach(function(d) {
                     pairRateWithId[d.id] = d.cases;
+                    pairDeathsWithId[d.id] = d.deaths;
                     pairNameWithId[d.id] = d.name;
                 });
-
-                // console.log(pairRateWithId)
 
                 svg.append("g")
                     .attr("class", "county")
@@ -213,11 +214,15 @@
                     .data(topojson.feature(counties, counties.objects.cb_2015_pennsylvania_county_20m).features)
                     .enter().append("path")
                     .attr("d", path)
-                    .style("fill" , function (d) {
+                    .style("fill", function (d) {
+                        if(pairDeathsWithId[d.properties.GEOID] !== undefined) {
+                            var texture = textures.lines().background(color(pairRateWithId[d.properties.GEOID])).stroke("black").lighter();
+                            svg.call(texture)
+                            return texture.url()
+                        }
                         return color(pairRateWithId[d.properties.GEOID]);
                     })
-                    .on("mouseover", function(d) {   
-                        d3.select(this).style("fill", "#ADABAB"); 
+                    .on("mouseover", function(d) {                    
                         tooltip.transition()    
                             .duration(200)    
                             .style("opacity", .9);    
@@ -228,12 +233,7 @@
                     .on("mouseout", function(d) {   
                         tooltip.transition()    
                             .duration(500)    
-                            .style("opacity", 0); 
-                        if(color(pairRateWithId[d.properties.GEOID]) !== undefined) {
-                            d3.select(this).style("fill", color(pairRateWithId[d.properties.GEOID])); 
-                        } else {
-                            d3.select(this).style("fill", "#E4E4E4"); 
-                        }
+                            .style("opacity", 0);
                     });
 
             },
@@ -376,11 +376,13 @@
         margin:0 auto;
     }
 
-    #map path {
+    #map .county path {
         fill: #E4E4E4;
         stroke: #fff;
         stroke-width: .5px;
-      }
+        transition: transform .2s; /* Animation */
+    }
+      
     #map path:hover {
         fill: #ADABAB;
     }
@@ -445,4 +447,5 @@
         /* stroke: #2d3748; */
         stroke-width: 1.25px;
     }
+
 </style>
