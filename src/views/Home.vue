@@ -3,7 +3,7 @@
         <div class="w-full bg-gray-800 md:pt-20 md:pb-20 text-white"> <!-- h-96 -->
 			<div class="lg:max-w-5xl mx-auto md:px-4 p-4">
                 <h1 class="text-4xl font-bold">Pennsylvania COVID-19 Tracker</h1>
-                <h4 class="text-xs">Source: <a class="border-b border-dotted text-blue-600 border-blue-600 hover:text-blue-800 hover:border-blue-800" target="_blank" href="https://www.health.pa.gov/topics/disease/Pages/Coronavirus.aspx">Pennsylvania Deptartment of Health</a> &middot; Last updated 3/23/2020 1:00 p.m.</h4>
+                <h4 class="text-xs">Source: <a class="border-b border-dotted text-blue-600 border-blue-600 hover:text-blue-800 hover:border-blue-800" target="_blank" href="https://www.health.pa.gov/topics/disease/Pages/Coronavirus.aspx">Pennsylvania Deptartment of Health</a> &middot; Last updated 3/24/2020 1:00 p.m.</h4>
                 
                 <div class="mt-10 p-4 bg-red-600 rounded-lg shadow-md text-white text-left">
                     <strong><i class="fas fa-exclamation-triangle pr-1"></i> Attention</strong>
