@@ -1544,7 +1544,7 @@ const virusData = [
                 cases: 91,
             },
             {
-                date: '2020-03-22',
+                date: '2020-03-23',
                 cases: 128,
             },
             {
@@ -1882,7 +1882,7 @@ const virusData = [
                 cases: 2,
             },
             {
-                date: '2020-03-22',
+                date: '2020-03-23',
                 cases: 3,
             },
             {
